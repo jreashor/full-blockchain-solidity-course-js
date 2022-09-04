@@ -17,4 +17,13 @@ contract FundMe {
         addressToAmountFunded[msg.sender] = msg.value;
         // msg.value has 18 decimals.
     }
+
+    function withdraw() public {
+        for (uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++) {
+            address funder = funders[funderIndex];
+            addressToAmountFunded[funder] = 0;
+        }
+
+        funders = new address[](0);
+    }
 }
