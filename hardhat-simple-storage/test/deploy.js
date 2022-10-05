@@ -12,6 +12,7 @@ describe("SimpleStorage", function () {
         const currentValue = await simpleStorage.retrieve();
         const expectedValue = "0";
         assert.equal(currentValue.toString(), expectedValue);
+        // expect(currentValue.toString()).to.equal(expectedValue);
     });
 
     it("Should update when we call store", async function () {
@@ -21,5 +22,22 @@ describe("SimpleStorage", function () {
 
         const currentValue = await simpleStorage.retrieve();
         assert.equal(currentValue.toString(), expectedValue);
+    });
+
+    it("Should update nameToFavouriteNumber when we add a person", async function () {
+        const expectedName = "Wayne";
+        const expectedFavouriteNumber = "99";
+        const transactionResponse = await simpleStorage.addPerson(
+            expectedName,
+            expectedFavouriteNumber
+        );
+        await transactionResponse.wait(1);
+
+        const currentFavouriteNumber =
+            await simpleStorage.nameToFavouriteNumber(expectedName);
+        assert.equal(
+            currentFavouriteNumber.toString(),
+            expectedFavouriteNumber
+        );
     });
 });

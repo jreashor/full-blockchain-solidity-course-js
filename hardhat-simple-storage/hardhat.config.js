@@ -3,6 +3,7 @@ require("dotenv").config();
 require("@nomiclabs/hardhat-etherscan");
 require("./tasks/block-number");
 require("hardhat-gas-reporter");
+require("solidity-coverage");
 
 const ETH_GOERLI = process.env.ETH_GOERLI;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
