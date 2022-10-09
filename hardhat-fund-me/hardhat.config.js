@@ -25,13 +25,14 @@ module.exports = {
             url: ETH_GOERLI,
             accounts: [PRIVATE_KEY],
             chainId: 5,
+            blockConfirmations: 6,
         },
     },
     etherscan: {
         apiKey: ETHERSCAN_API_KEY,
     },
     gasReporter: {
-        enabled: true,
+        enabled: false,
         outputFile: "gas-report.txt",
         noColors: true,
         currency: "CAD",
