@@ -1,5 +1,6 @@
 const { assert, expect } = require("chai");
 const { deployments, ethers } = require("hardhat");
+const { devChains } = require("../../helper-hardhat-config");
 
 !devChains.includes(network.name)
     ? describe.skip
