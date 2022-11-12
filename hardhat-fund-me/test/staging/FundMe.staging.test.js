@@ -14,7 +14,10 @@ devChains.includes(network.name)
           });
 
           it("Allows people to fund and withdraw.", async function () {
-              const fundTxResponse = await fundMe.fund({ value: sendValue });
+              const fundTxResponse = await fundMe.fund({
+                  value: sendValue,
+                  gasLimit: 70000,
+              });
               await fundTxResponse.wait(1);
               const withdrawTxResponse = await fundMe.withdraw();
               await withdrawTxResponse.wait(1);

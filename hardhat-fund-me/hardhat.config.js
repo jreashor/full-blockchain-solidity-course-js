@@ -26,7 +26,6 @@ module.exports = {
             url: ETH_GOERLI,
             accounts: [PRIVATE_KEY],
             chainId: 5,
-            blockConfirmations: 6,
         },
     },
     etherscan: {
