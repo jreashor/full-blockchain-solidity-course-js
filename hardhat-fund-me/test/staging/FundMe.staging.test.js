@@ -7,17 +7,14 @@ devChains.includes(network.name)
     : describe("FundMe", async function () {
           let fundMe;
           let deployer;
-          const sendValue = ethers.utils.parseEther("0.01");
+          const sendValue = ethers.utils.parseEther("0.02");
           beforeEach(async function () {
               deployer = (await getNamedAccounts()).deployer;
               fundMe = await ethers.getContract("FundMe", deployer);
           });
 
           it("Allows people to fund and withdraw.", async function () {
-              const fundTxResponse = await fundMe.fund({
-                  value: sendValue,
-                  gasLimit: 70000,
-              });
+              const fundTxResponse = await fundMe.fund({ value: sendValue });
               await fundTxResponse.wait(1);
               const withdrawTxResponse = await fundMe.withdraw();
               await withdrawTxResponse.wait(1);
